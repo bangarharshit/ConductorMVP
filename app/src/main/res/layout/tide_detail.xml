@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.harshitbangar.conductormvp.details.TideDetailsView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      >
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?colorPrimary"
+        app:theme="@style/MyToolbarStyle"/>
+
+    <FrameLayout
+        android:id="@+id/tideDetailsContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        tools:visibility="visible"
+        >
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="vertical"
+          >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            />
+
+        <TextView
+            android:id="@+id/highestWaterLevel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            tools:text="Today's Max Water Height: 5.5 ft"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/black"
+            />
+
+        <View
+            android:id="@+id/currentWaterLevelTopSpacing"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="80"
+            />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/waves"
+            android:layout_marginBottom="-2dp"
+            android:contentDescription="@string/current_water_level"
+            />
+
+        <View
+            android:id="@+id/currentWaterLevelBottomSpacing"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="20"
+            android:background="@color/water"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/black"
+            />
+
+        <TextView
+            android:id="@+id/lowestWaterLevel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@color/water"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            tools:text="Today's Lowest Water Height: 5.5 ft"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/water"
+            />
+
+      </LinearLayout>
+
+      <TextView
+          android:id="@+id/currentWaterLevel"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:textColor="@android:color/black"
+          android:textSize="24sp"
+          tools:text="Current Water Level: 3.5 ft"
+          />
+
+    </FrameLayout>
+  </LinearLayout>
+
+
+  <ProgressBar
+      android:id="@+id/loading"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      tools:visibility="gone"
+      />
+
+</com.harshitbangar.conductormvp.details.TideDetailsView>

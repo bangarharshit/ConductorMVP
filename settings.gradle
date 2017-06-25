@@ -1,0 +1,4 @@
+include ':app', ':mvp.conductor',
+    ':rxmvpconductor',
+    ':rx2mvpconductor',
+    ':rx2autodisposemvpconductor'
