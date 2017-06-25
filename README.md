@@ -1,6 +1,6 @@
 # Conductor MVP
 It is a tiny library (17kb  and just contain 2 classes) to add MVP support to [Conductor](https://github.com/bluelinelabs/Conductor). 
-It achieves the same by removing view logic into a separate class.
+It achieves the same by moving the view logic into a separate class.
 
 ## Design considerations
 1. Controller should only contain the logic.
