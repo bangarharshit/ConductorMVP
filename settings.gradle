@@ -1,4 +1,4 @@
-include ':app', ':mvpconductor',
+include ':sample', ':mvpconductor',
     ':rxmvpconductor',
     ':rx2mvpconductor',
     ':rx2autodisposemvpconductor'
