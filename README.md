@@ -26,7 +26,7 @@ allprojects {
 Add to your app/build.gradle
 ```
 
-compile 'com.github.bangarharshit.ConductorMVP:rx2mvpconductor:v0.11'
+compile 'com.github.bangarharshit.ConductorMVP:mvpconductor:v0.11'
 
 // If you are using conductor-rxlifecycle
 compile 'com.github.bangarharshit.ConductorMVP:rxmvpconductor:v0.11'
