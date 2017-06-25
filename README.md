@@ -15,25 +15,25 @@ but it is unsafe to directly access view in the controller by getView(). It shou
 
 Add to your project/build.gradle
 ``` 
-	allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
-	}
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
 ```
 
 Add to your app/build.gradle
 ```
-    com.github.bangarharshit.Conductor-MVP:mvpconductor:v0.11
-    
-    // If you are using conductor-rxlifecycle
-    com.github.bangarharshit.Conductor-MVP:rxmvpconductor:v0.11
-    
-    // If you are using conductor-rxlifecycle2
-    com.github.bangarharshit.Conductor-MVP:rx2mvpconductor:v0.11
-    
-    // Soon - Autodispose support
+com.github.bangarharshit.Conductor-MVP:mvpconductor:v0.11
+
+// If you are using conductor-rxlifecycle
+com.github.bangarharshit.Conductor-MVP:rxmvpconductor:v0.11
+
+// If you are using conductor-rxlifecycle2
+com.github.bangarharshit.Conductor-MVP:rx2mvpconductor:v0.11
+
+// Soon - Autodispose support
 ```
 
 ## Show me some code code.
