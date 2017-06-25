@@ -25,13 +25,14 @@ allprojects {
 
 Add to your app/build.gradle
 ```
-com.github.bangarharshit.Conductor-MVP:mvpconductor:v0.11
+
+compile 'com.github.bangarharshit.ConductorMVP:rx2mvpconductor:v0.11'
 
 // If you are using conductor-rxlifecycle
-com.github.bangarharshit.Conductor-MVP:rxmvpconductor:v0.11
+compile 'com.github.bangarharshit.ConductorMVP:rxmvpconductor:v0.11'
 
 // If you are using conductor-rxlifecycle2
-com.github.bangarharshit.Conductor-MVP:rx2mvpconductor:v0.11
+compile 'com.github.bangarharshit.ConductorMVP:rx2mvpconductor:v0.11'
 
 // Soon - Autodispose support
 ```
