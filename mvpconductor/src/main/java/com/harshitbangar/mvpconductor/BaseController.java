@@ -40,7 +40,7 @@ public abstract class BaseController<T extends BaseView> extends Controller {
   }
 
   @Override protected final void onDetach(@NonNull View view) {
-    detchView((T) view);
+    detachView((T) view);
   }
 
   @Override protected final void onDestroyView(@NonNull View view) {
@@ -49,7 +49,7 @@ public abstract class BaseController<T extends BaseView> extends Controller {
 
   protected void attachView(T view) { };
 
-  protected void detchView(T view) { };
+  protected void detachView(T view) { };
 
   protected void destroyView(T view) { };
 }
