@@ -2,16 +2,13 @@ package com.harshitbangar.conductormvp.base;
 
 import android.os.Bundle;
 import android.support.annotation.CallSuper;
-import android.support.annotation.NonNull;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
+import com.harshitbangar.mvpconductor.BaseView;
 import com.harshitbangar.rx2mvpconductor.BuildConfig;
-import com.harshitbangar.rx2mvpconductor.RXBaseController;
-import com.harshitbangar.rx2mvpconductor.RXBaseView;
+import com.harshitbangar.rx2mvpconductor.RxBaseController;
 
 import static com.harshitbangar.conductormvp.DemoApplication.app;
 
-public abstract class RefWatcherController<T extends RXBaseView> extends RXBaseController<T> {
+public abstract class RefWatcherController<T extends RefWatcherController<T, U>, U extends BaseView<T, U>> extends RxBaseController<T, U> {
 
   public RefWatcherController() {
     this(null);
@@ -20,8 +17,6 @@ public abstract class RefWatcherController<T extends RXBaseView> extends RXBaseC
   public RefWatcherController(Bundle args) {
     super(args);
   }
-
-  @Override protected abstract T createView(@NonNull LayoutInflater inflater, @NonNull ViewGroup container);
 
   @Override @CallSuper protected void onDestroy() {
     super.onDestroy();

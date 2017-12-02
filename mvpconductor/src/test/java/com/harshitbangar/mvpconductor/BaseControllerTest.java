@@ -3,14 +3,13 @@ package com.harshitbangar.mvpconductor;
 import org.junit.Assert;
 import org.junit.Test;
 
+@SuppressWarnings("ConstantConditions")
 public class BaseControllerTest {
   private DummyController dummyController = new DummyController();
 
   @Test
   public void setView() {
-    dummyController.onCreateView(null, null);
-    DummyView dummyView = dummyController.getSafeView();
+    DummyView dummyView = (DummyView) dummyController.onCreateView(null, null);
     Assert.assertEquals(dummyController, dummyView.getController());
-    Assert.assertEquals(dummyView, dummyController.getSafeView());
   }
 }

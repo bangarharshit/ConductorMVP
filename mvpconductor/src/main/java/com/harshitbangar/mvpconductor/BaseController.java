@@ -10,9 +10,10 @@ import com.bluelinelabs.conductor.Controller;
 
 /**
  * BaseController is a thin wrapper over controller which tries to generify view.
- * @param <T> the view type.
+ * @param <T> the controller type.
+ * @param <U> the view type.
  */
-public abstract class BaseController<T extends BaseView> extends Controller {
+public abstract class BaseController<T extends BaseController<T, U>, U extends BaseView<T, U>> extends Controller {
 
   public BaseController() {
     this(null);
@@ -24,32 +25,38 @@ public abstract class BaseController<T extends BaseView> extends Controller {
 
   @NonNull @Override
   protected final View onCreateView(@NonNull LayoutInflater inflater, @NonNull ViewGroup container) {
-    T view =  createView(inflater, container);
-    view.setController(this);
+    U view =  createView(inflater, container);
+    view.setController(getThis());
     return view;
   }
 
-  protected abstract T createView(@NonNull LayoutInflater inflater, @NonNull ViewGroup container);
-
-  protected T getSafeView() {
-    return (T) getView();
+  @SuppressWarnings("unchecked")
+  // This will always be true for concrete subclasses so can be safely casted.
+  private T getThis() {
+    return (T) this;
   }
 
-  @Override protected final void onAttach(@NonNull View view) {
-    attachView((T) view);
+  protected abstract U createView(@NonNull LayoutInflater inflater, @NonNull ViewGroup container);
+
+  @SuppressWarnings("unchecked") protected final U getSafeView() {
+    return (U) getView();
   }
 
-  @Override protected final void onDetach(@NonNull View view) {
-    detachView((T) view);
+  @SuppressWarnings("unchecked") @Override protected final void onAttach(@NonNull View view) {
+    attachView((U) view);
   }
 
-  @Override protected final void onDestroyView(@NonNull View view) {
-    destroyView((T) view);
+  @SuppressWarnings("unchecked") @Override protected final void onDetach(@NonNull View view) {
+    detachView((U) view);
   }
 
-  protected void attachView(T view) { };
+  @SuppressWarnings("unchecked") @Override protected final void onDestroyView(@NonNull View view) {
+    destroyView((U) view);
+  }
 
-  protected void detachView(T view) { };
+  protected void attachView(U view) { };
 
-  protected void destroyView(T view) { };
+  protected void detachView(U view) { };
+
+  protected void destroyView(U view) { };
 }

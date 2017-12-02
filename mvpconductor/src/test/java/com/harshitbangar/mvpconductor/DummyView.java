@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 /**
  * Created by harshitbangar on 25/06/17.
  */
-public class DummyView extends BaseView<DummyController> {
+public class DummyView extends BaseView<DummyController, DummyView> {
 
   public DummyView(Context context) {
     super(context);

@@ -1,4 +1,3 @@
-include ':sample', ':mvpconductor',
-    ':rxmvpconductor',
-    ':rx2mvpconductor',
-    ':rx2autodisposemvpconductor'
+include ':sample',
+':mvpconductor',
+':rx2mvpconductor'

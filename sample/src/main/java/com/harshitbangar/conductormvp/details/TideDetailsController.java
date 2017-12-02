@@ -21,7 +21,7 @@ import java.util.Comparator;
 import java.util.List;
 import javax.inject.Inject;
 
-public class TideDetailsController extends RefWatcherController<TideDetailsView> {
+public class TideDetailsController extends RefWatcherController<TideDetailsController, TideDetailsView> {
 
   private static final Comparator<Observation> OBSERVATION_COMPARATOR = new Comparator<Observation>() {
     @Override

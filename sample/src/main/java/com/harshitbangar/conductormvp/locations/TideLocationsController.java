@@ -12,7 +12,7 @@ import com.harshitbangar.conductormvp.details.TideDetailsController;
  * Created by harshitbangar on 25/06/17.
  */
 
-public class TideLocationsController extends RefWatcherController<TideLocationsView> {
+public class TideLocationsController extends RefWatcherController<TideLocationsController, TideLocationsView> {
 
   @Override protected TideLocationsView createView(@NonNull LayoutInflater inflater,
       @NonNull ViewGroup container) {
