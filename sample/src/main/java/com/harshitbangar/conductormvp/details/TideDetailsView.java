@@ -24,7 +24,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Locale;
 
-class TideDetailsView extends BaseView<TideDetailsController, TideDetailsView> {
+public class TideDetailsView extends BaseView<TideDetailsController, TideDetailsView> {
 
   Toolbar toolbar;
   ProgressBar loading;

@@ -18,7 +18,7 @@ import com.harshitbangar.conductormvp.R;
 import com.harshitbangar.conductormvp.model.TideLocations;
 import com.harshitbangar.mvpconductor.BaseView;
 
-class TideLocationsView extends BaseView<TideLocationsController, TideLocationsView> {
+public class TideLocationsView extends BaseView<TideLocationsController, TideLocationsView> {
 
   GridView tideLocationsList;
 
