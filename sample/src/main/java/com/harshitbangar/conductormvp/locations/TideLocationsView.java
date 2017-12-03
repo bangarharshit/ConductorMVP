@@ -16,9 +16,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.harshitbangar.conductormvp.R;
 import com.harshitbangar.conductormvp.model.TideLocations;
-import com.harshitbangar.rx2mvpconductor.RXBaseView;
+import com.harshitbangar.mvpconductor.BaseView;
 
-class TideLocationsView extends RXBaseView<TideLocationsController> {
+public class TideLocationsView extends BaseView<TideLocationsController, TideLocationsView> {
 
   GridView tideLocationsList;
 

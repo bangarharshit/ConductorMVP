@@ -19,12 +19,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.harshitbangar.conductormvp.R;
-import com.harshitbangar.rx2mvpconductor.RXBaseView;
+import com.harshitbangar.mvpconductor.BaseView;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Locale;
 
-class TideDetailsView extends RXBaseView<TideDetailsController> {
+public class TideDetailsView extends BaseView<TideDetailsController, TideDetailsView> {
 
   Toolbar toolbar;
   ProgressBar loading;

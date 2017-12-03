@@ -12,7 +12,7 @@ import android.widget.FrameLayout;
  * Thin wrapper over framelayout. Wrap all your existing views inside it in the xml.
  * @param <C> the controller type.
  */
-public class BaseView<C extends BaseController> extends FrameLayout {
+public class BaseView<C extends BaseController<C, U>, U extends BaseView<C, U>> extends FrameLayout {
 
   private C controller;
 
@@ -34,6 +34,7 @@ public class BaseView<C extends BaseController> extends FrameLayout {
     super(context, attrs, defStyleAttr, defStyleRes);
   }
 
+  @SuppressWarnings("unchecked")
   public <T> T findView(@IdRes int id) {
     return (T) findViewById(id);
   }
