@@ -8,33 +8,20 @@ It achieves the same by moving the view logic into a separate class.
 3. Controller can access view with the correct type. Currently, getView returns either View or null (if it is destroyed or not created).
 4. Similarly, the view also has access to the controller with the correct type.
 5. Controller survives rotation but the view is recreated. It is safe to access controller in view by getController() 
-but it is unsafe to directly access view in the controller by getView(). It should be either null checked or used in combination with RXLifeCycle.
+but it is unsafe to directly access view in the controller by getView(). It should be either null checked or used in combination with RxLifeCycle or AutoDispose.
 
 
 ## Installation
 
-Add to your project/build.gradle
-``` 
-allprojects {
-    repositories {
-        ...
-        maven { url 'https://jitpack.io' }
-    }
-}
-```
-
 Add to your app/build.gradle
-```
+```gradle
 
-compile 'com.github.bangarharshit.ConductorMVP:mvpconductor:v0.11'
-
-// If you are using conductor-rxlifecycle
-compile 'com.github.bangarharshit.ConductorMVP:rxmvpconductor:v0.11'
+compile 'com.github.bangarharshit:mvpconductor:0.0.1-SNAPSHOT'
 
 // If you are using conductor-rxlifecycle2
-compile 'com.github.bangarharshit.ConductorMVP:rx2mvpconductor:v0.11'
+compile 'com.github.bangarharshit:rx2mvpconductor:0.0.1-SNAPSHOT'
 
-// Soon - Autodispose support
+// Autodispose support - Soon
 ```
 
 ## Show me some code code.
@@ -70,7 +57,7 @@ Use BaseController (RXBaseController) instead of Controller(RXController).
 ```java
 import com.harshitbangar.mvpconductor.BaseController;
 
-public class HomeController extends BaseController<HomeView> {
+public class HomeController extends BaseController<HomeController, HomeView> {
 
   @Override
   protected HomeView createView(@NonNull LayoutInflater inflater, @NonNull ViewGroup container) {
@@ -88,7 +75,7 @@ Use BaseView (or RXBaseView).
 ```java
 import com.harshitbangar.mvpconductor.BaseView;
     
-class HomeView extends BaseView<HomeController> {
+class HomeView extends BaseView<HomeController, HomeView> {
   public HomeView(Context context) {
     super(context);
     inflate(context, R.layout.home, this);
