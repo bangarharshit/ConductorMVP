@@ -13,7 +13,7 @@ import com.bluelinelabs.conductor.Controller;
  * @param <T> the controller type.
  * @param <U> the view type.
  */
-public abstract class BaseController<T extends BaseController<T, U>, U extends BaseView<T, U>> extends Controller {
+public abstract class BaseController<T extends BaseController<T, U>, U extends ViewGroup & SuperView<T, U>> extends Controller {
 
   public BaseController() {
     this(null);

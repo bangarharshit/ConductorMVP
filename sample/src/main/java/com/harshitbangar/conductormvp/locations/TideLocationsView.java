@@ -16,9 +16,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.harshitbangar.conductormvp.R;
 import com.harshitbangar.conductormvp.model.TideLocations;
-import com.harshitbangar.mvpconductor.BaseView;
+import com.harshitbangar.mvpconductor.BaseFrameLayoutView;
 
-public class TideLocationsView extends BaseView<TideLocationsController, TideLocationsView> {
+public class TideLocationsView extends
+    BaseFrameLayoutView<TideLocationsController, TideLocationsView> {
 
   GridView tideLocationsList;
 
@@ -35,15 +36,9 @@ public class TideLocationsView extends BaseView<TideLocationsController, TideLoc
     super(context, attrs, defStyleAttr);
   }
 
-  @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-  public TideLocationsView(@NonNull Context context, @Nullable AttributeSet attrs,
-      @AttrRes int defStyleAttr, @StyleRes int defStyleRes) {
-    super(context, attrs, defStyleAttr, defStyleRes);
-  }
-
   @Override protected void onFinishInflate() {
     super.onFinishInflate();
-    tideLocationsList = findView(R.id.tideLocationsGrid);
+    tideLocationsList = (GridView) findViewById(R.id.tideLocationsGrid);
     tideLocationsList.setAdapter(new TideLocationsListAdapter(getContext()));
   }
 

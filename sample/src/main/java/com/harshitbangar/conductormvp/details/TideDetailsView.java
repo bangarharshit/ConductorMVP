@@ -19,12 +19,14 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.harshitbangar.conductormvp.R;
-import com.harshitbangar.mvpconductor.BaseView;
+import com.harshitbangar.mvpconductor.BaseFrameLayoutView;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Locale;
 
-public class TideDetailsView extends BaseView<TideDetailsController, TideDetailsView> {
+import static com.harshitbangar.conductormvp.R.*;
+
+public class TideDetailsView extends BaseFrameLayoutView<TideDetailsController, TideDetailsView> {
 
   Toolbar toolbar;
   ProgressBar loading;
@@ -48,22 +50,16 @@ public class TideDetailsView extends BaseView<TideDetailsController, TideDetails
     super(context, attrs, defStyleAttr);
   }
 
-  @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-  public TideDetailsView(@NonNull Context context, @Nullable AttributeSet attrs,
-      @AttrRes int defStyleAttr, @StyleRes int defStyleRes) {
-    super(context, attrs, defStyleAttr, defStyleRes);
-  }
-
   @Override protected void onFinishInflate() {
     super.onFinishInflate();
-    toolbar = findView(R.id.toolbar);
-    loading = findView(R.id.loading);
-    content = findView(R.id.tideDetailsContent);
-    currentWaterLevel = findView(R.id.currentWaterLevel);
-    highestWaterLevel = findView(R.id.highestWaterLevel);
-    lowestWaterLevel = findView(R.id.lowestWaterLevel);
-    currentWaterLevelBottomSpacing = findView(R.id.currentWaterLevelBottomSpacing);
-    currentWaterLevelTopSpacing = findView(R.id.currentWaterLevelTopSpacing);
+    toolbar = (Toolbar) findViewById(id.toolbar);
+    loading = (ProgressBar) findViewById(id.loading);
+    content = findViewById(id.tideDetailsContent);
+    currentWaterLevel = (TextView) findViewById(id.currentWaterLevel);
+    highestWaterLevel = (TextView) findViewById(id.highestWaterLevel);
+    lowestWaterLevel = (TextView) findViewById(id.lowestWaterLevel);
+    currentWaterLevelBottomSpacing = findViewById(id.currentWaterLevelBottomSpacing);
+    currentWaterLevelTopSpacing = findViewById(id.currentWaterLevelTopSpacing);
     setToolbar();
   }
 
@@ -114,8 +110,8 @@ public class TideDetailsView extends BaseView<TideDetailsController, TideDetails
   }
 
   private void setToolbar() {
-    toolbar.inflateMenu(R.menu.tide_details);
-    toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24px);
+    toolbar.inflateMenu(menu.tide_details);
+    toolbar.setNavigationIcon(drawable.ic_arrow_back_white_24px);
     toolbar.setNavigationOnClickListener(new OnClickListener() {
       @Override public void onClick(View v) {
         getController().goBack();
@@ -123,7 +119,7 @@ public class TideDetailsView extends BaseView<TideDetailsController, TideDetails
     });
     toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
       @Override public boolean onMenuItemClick(MenuItem item) {
-        if (item.getItemId() == R.id.delete) {
+        if (item.getItemId() == id.delete) {
           Toast.makeText(TideDetailsView.this.getContext(), "Deleting", Toast.LENGTH_LONG).show();
         }
         return false;
@@ -136,6 +132,6 @@ public class TideDetailsView extends BaseView<TideDetailsController, TideDetails
   }
 
   public void showError() {
-    Toast.makeText(getContext(), R.string.cannot_retrieve_tide_info, Toast.LENGTH_SHORT).show();
+    Toast.makeText(getContext(), string.cannot_retrieve_tide_info, Toast.LENGTH_SHORT).show();
   }
 }
