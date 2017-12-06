@@ -4,11 +4,12 @@ import android.os.Bundle;
 import android.support.annotation.CheckResult;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.widget.FrameLayout;
 import com.bluelinelabs.conductor.rxlifecycle2.ControllerEvent;
 import com.bluelinelabs.conductor.rxlifecycle2.ControllerLifecycleSubjectHelper;
 import com.bluelinelabs.conductor.rxlifecycle2.RxControllerLifecycle;
 import com.harshitbangar.mvpconductor.BaseController;
-import com.harshitbangar.mvpconductor.BaseView;
+import com.harshitbangar.mvpconductor.BaseFrameLayoutView;
 import com.trello.rxlifecycle2.LifecycleProvider;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.RxLifecycle;
@@ -20,7 +21,7 @@ import io.reactivex.subjects.BehaviorSubject;
  * @param <T> the controller type.
  * @param <U> the view type.
  */
-public abstract class RxBaseController<T extends RxBaseController<T, U>, U extends BaseView<T, U>> extends BaseController<T, U> implements
+public abstract class RxBaseController<T extends RxBaseController<T, U>, U extends BaseFrameLayoutView<T, U>> extends BaseController<T, U> implements
     LifecycleProvider<ControllerEvent> {
   private final BehaviorSubject<ControllerEvent> lifecycleSubject;
 
